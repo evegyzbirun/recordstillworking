@@ -1,0 +1,27 @@
+<h2>Song: <%= @song.name %></h2>
+<h3>Album: <%= @song.album.name %></h3>
+
+<% if @lyrics.any? %>
+  <p>
+    <% @lyrics %>
+  </p>
+<% else %>
+  <p>There are currently no lyrics to display.</p>
+<% end %>
+
+
+<form action="/albums/<%= @song.album.id %>/songs/<%= @song.id %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <label for="name">Rename song</label>
+    <input id="name" name="name" type="text">
+    <button type="submit">Update song</button>
+  </form>
+  <form action="/albums/<%= @song.album.id %>/songs/<%= @song.id %>" method="get">
+    <input name="_method" type="hidden" value="get">
+    <p><a href="/albums/<%= @song.album.id %>/songs/<%= @song.id %>/lyrics">Add lyrics</a></p>
+  </form>
+  <form action="/albums/<%= @song.album.id %>/songs/<%= @song.id %>" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <button type="submit">Delete song</button>
+  </form>
+  <a href="/albums/<%= @song.album.id %>">Back to <%= @song.album.name %></a>

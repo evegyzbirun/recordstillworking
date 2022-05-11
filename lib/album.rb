@@ -73,5 +73,9 @@ class Album
   def self.sort
     @@albums.values.sort_by { |val| val.name}
   end
+  
+  def songs
+    Song.find_by_album(self.id)
+  end
 end
 

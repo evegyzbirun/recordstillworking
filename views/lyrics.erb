@@ -1,0 +1,9 @@
+<h2>Song: <%= @song.name %></h2>
+<h3>Album: <%= @song.album.name %></h3>
+
+<form action="/albums/<%= @song.album.id %>/songs/<%= @song.id %>" method="post">
+  <label for="lyrics">Add lyrics</label>
+  <textarea id="lyrics" name="lyrics"></textarea>
+
+  <button type="submit">Update lyrics</button>
+</form>

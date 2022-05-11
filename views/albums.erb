@@ -1,7 +1,6 @@
 <h1>All Sales Vinyl</h1>
-
 <h3>Available Records</h3>
-
+<a href="/albums/new">Add a new album</a>
 <form action="/albums">
   <div class="form-group">
     <label for="search">Search</label>
@@ -9,7 +8,6 @@
   </div>
   <button type="submit" class="btn">Go!</button>
 </form>
-
 <% if @albums.any? %>
   <ul>
     <% @albums.each do |album| %>
@@ -19,5 +17,3 @@
 <% else %>
   <p>There are currently no records to display.</p>
 <% end %>
-
-<a href="/albums/new">Add a new album</a>
